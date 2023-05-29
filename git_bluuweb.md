@@ -73,9 +73,19 @@ Para pasar un repositorio remoto a local:
 git clone "nombre del repo"
 ```
 
-### Git intermedio
+## Git intermedio
 
+Ignorar archivos con .gitignore
 
+Creamos un archivo .env
+Crear archivo .gitignore
+Este archivo es para variables de entorno, aqui colocamos por ejemplo claves de acceso o contraseñas, nombres de usuario, etc
 
+Para que ésto no aparezca en nuestro repositorio al subirlo, lo agregamos dentro del .gitignore
 
+Al trabajar con node se crea una carpeta que se llama *node_modules*
+esa carpeta tampoco la subimos ya sea a un hosting, servidor o a github
+por lo tanto ignoramos la carpeta agregandola a .gitignore
+
+Hay mas opciones como ignorar todos los archivos .js o si se quiere ignorar un archivo en especifico dentro de una carpeta
 
