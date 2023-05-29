@@ -89,3 +89,23 @@ por lo tanto ignoramos la carpeta agregandola a .gitignore
 
 Hay mas opciones como ignorar todos los archivos .js o si se quiere ignorar un archivo en especifico dentro de una carpeta
 
+## Retroceder en el tiempo
+
+Trabajando de manera lineal (aun no con ramas)
+
+```bash
+git log --oneline
+```
+Aqui tenemos el registro de todo lo que está pasando en git
+
+Creamos mas archivos y commits -> about.html, contact.html
+
+
+
+
+
+
+
+Search
+github esta cambiando de master a main
+
