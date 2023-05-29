@@ -100,6 +100,18 @@ Aqui tenemos el registro de todo lo que está pasando en git
 
 Creamos mas archivos y commits -> about.html, contact.html
 
+**git checkout**
+
+Si queremos visitar un commit en especifico
+Esto no es para viajar, es solamente para revisar
+Para saber por ejemplo, que hicimos en el primer commit, que cambios se habian efectuado en ese momento o como estaba nuestro proyecto en ese espacio del tiempo
+
+Para eso es importante hacer **git log --oneline** y capturar los ID **a378677**, no es necesario colocar el git log que muestra mas informacion
+
+```bash
+git checkout a378677
+```
+
 
 
 
