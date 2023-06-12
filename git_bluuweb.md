@@ -112,6 +112,86 @@ Para eso es importante hacer **git log --oneline** y capturar los ID **a378677**
 git checkout a378677
 ```
 
+Estabamos trabajando en esa linea que se llamaba **master** y ahora no esta, solamente tenemos **(HEAD)**. Con checkout nos hemos movido en este espacio del tiempo, pero solo hemos movido el HEAD, no movimos la rama entera o el master no lo hemos traido, por eso no es recomendable hacer cambios aqui y solamente revisar
+
+Durante el curso normal de desarrollo, HEAD apunta por lo general a la rama main u otra rama local (HEAD -> master), pero cuando extraes una confirmacion anterior, HEAD ya no apunta a una rama, sino que apunta directamente a una confirmacion. Este estado recibe el nombre de "HEAD desasociado" (detached HEAD)
+*Ej: a00beae (HEAD) a1-html*
+
+Comprobar un commit estecifico pondra el repositorio en un estado "HEAD desasociado". Esto significa que ya no estas trabajando en ninguna rama
+
+Para cambiarme denuevo al ultimo commit realizado, si ejecute en la terminal git log antes de hacer el checkout, busco el historial y copio el primer ID, ya que despues de hacer el checkout desapareceran del comando git log, todos los commits superiores al que me cambie.
+Otra manera de llegar al ultimo commit es con la ayuda de VS Code, en la esquina inferior izquierda me aparece en que rama y en que rama estoy actualmente, en este caso me aparecera el ID dende estoy y al darle click, en la parte superior aparece la opcion de cambiar al master (ultimo cambio)
+Tambien al indicar con master/main, me enviara al ultimo commit
+
+```bash
+git checkout master
+```
+
+Si se hace un commit estando en detached HEAD, en caso de no hacer esa rama, va a quedar como flotando en el espacio ese commit y posteriormente git lo va a eliminar
+
+Por ejemplo realizo cambios en un commit anterior, vuelvo a la rama principal master o main, git recomiendo hacer una nueva rama para el commit huerfano
+
+
+## Renombrar rama
+
+Para cambiar, por ejemplo, de master a main
+
+Esto cuando estamos trabajando de forma lineal, en una sola rama
+
+De forma global
+
+```shell
+git config --global init.defaultBranch main
+```
+
+Para un unico proyecto
+
+```shell
+git branch -m master main
+```
+
+
+## Git reset
+
+Viajar a travez de diferentes commits
+Esto es util si aun no has subido tu commit a GitHub
+
+Si estamos por ejemplo en el quinto commit, y queremos ir al primer commit, seria git reset (id del commit al que queremos ir) --mixed
+
+Aqui el mixed se hace por defecto asi que no lo escribimos
+
+```shell
+git reset 0a72f38
+```
+
+Viajamos a esa parte del tiempo, pero perdemos los cambios que se hicieron despues de ese commit (solo se pierden los commit, pero el codigo que se habia en esos commits, sigue en el archivo, pero ha dejado de darles seguimiento)
+
+Podemos volver al commit que teniamos antes, restaurando asi los commits que desaparecieron despues de viajar
+Escribimos el mismo comando, con el ID del commit que estabamos
+
+Se van a reestablecer los commit y los archivos que estaban sin seguimiento, vuelven a la normalidad
+
+
+### reset hard
+Ahora vamos a utilizar un metodo mas destructivo: viajamos al commit en especifico y eliminamos los cambios futuros a ese commit, aqui si se eliminan tanto los commits como los archivos que se crearon posterior al ID que coloquemos
+
+```shell
+git reset --hard c97d996
+```
+En caso de restaurar los cambios podemos utilizar reflog: muestra todos los cambios incluso si borramos los commit
+
+```bash
+git reflog
+```
+
+Si utilizamos el --hard por equivocacion y no tenemos el ID del commit donde estabamos, usamos el git reflog para ver todo el historial de commits que hecho. Asi podemos buscar el ID del ultimo commit que realizamos y volver ahi usando git reset --hard de igual manera, pero esta vez con este ID y restauramos todos los archivos
+
+### Nota: Tener cuidado con reset
+
+Ambos comandos git revert y git reset deshacen commits anteriores. Pero si ya has subido tu commit a un repositorio remoto, se recomienda que no uses git reset, ya que reescribe el historial de commits
+
+Solucion: Restaurar la ultima version remota
+
 
 
 
@@ -120,4 +200,4 @@ git checkout a378677
 
 Search
 github esta cambiando de master a main
-
+eliminar el ultimo commit?
