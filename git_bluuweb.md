@@ -151,7 +151,7 @@ git branch -m master main
 ```
 
 
-## Git reset
+## git reset
 
 Viajar a travez de diferentes commits
 Esto es util si aun no has subido tu commit a GitHub
@@ -172,7 +172,7 @@ Escribimos el mismo comando, con el ID del commit que estabamos
 Se van a reestablecer los commit y los archivos que estaban sin seguimiento, vuelven a la normalidad
 
 
-### reset hard
+## reset hard
 Ahora vamos a utilizar un metodo mas destructivo: viajamos al commit en especifico y eliminamos los cambios futuros a ese commit, aqui si se eliminan tanto los commits como los archivos que se crearon posterior al ID que coloquemos
 
 ```shell
@@ -190,9 +190,44 @@ Si utilizamos el --hard por equivocacion y no tenemos el ID del commit donde est
 
 Ambos comandos git revert y git reset deshacen commits anteriores. Pero si ya has subido tu commit a un repositorio remoto, se recomienda que no uses git reset, ya que reescribe el historial de commits
 
-Solucion: Restaurar la ultima version remota
+Solucion: Restaurar la ultima version remota. Con pull
+
+```bash
+ git pull origin YOUR_BRANCH_NAME
+```
+
+Ejemplo.
+Subimos el repositorio a github, luego escribimos git reset --hard 346e753.
+
+Se van los cambios que hice posterior a ese commit.
+
+Prosigo agregando codigo y hago un commit
+
+Y cuando lo subo al repositorio remoto con git push, dará error
+
+Hay un conflicto, ya que en github tenemos un commit con un ID que no existe, es el que elimimamos al hacer reset
+
+Cuando pase esto, escribir el git pull origin YOUR_BRANCH_NAME
+
+Si verificamos con git log, aparece que hicimos un merged y aparecen todos los commits mezclados. Esa es una alternativa
+
+Como estamos trabajando en una sol rama, esto tambien ocaciona esos problemas
+
+La solucion para esto es revert
 
 
+## git revert
+
+En lugar de usar git reset, git revert deshace los cambios realizados por un commit anterior creando un commit completamente nuevo, todo ésto sin alterar el historial de commits 
+
+Por ejemplo tenemos 5 commits, el tercero es el que tiene errores o queremos eliminar, seleccionamos su ID y escribimos:
+
+```bash
+git revert 346e753
+```
+El commit seguirá en el historial (al escribir git log, seguira el mismo ID), pero sacamos los cambios que estaban en ese commit e hcimos otro commt, entonces lo tenemos como respaldo
+
+Ahora no habrá problemas al subirlo a guthub
 
 
 
