@@ -106,7 +106,7 @@ Si queremos visitar un commit en especifico
 Esto no es para viajar, es solamente para revisar
 Para saber por ejemplo, que hicimos en el primer commit, que cambios se habian efectuado en ese momento o como estaba nuestro proyecto en ese espacio del tiempo
 
-Para eso es importante hacer **git log --oneline** y capturar los ID **a378677**, no es necesario colocar el git log que muestra mas informacion
+Para eso es importante hacer `git log --oneline` y capturar los ID **a378677**, no es necesario colocar el git log que muestra mas informacion
 
 ```bash
 git checkout a378677
@@ -173,6 +173,7 @@ Se van a reestablecer los commit y los archivos que estaban sin seguimiento, vue
 
 
 ## reset hard
+
 Ahora vamos a utilizar un metodo mas destructivo: viajamos al commit en especifico y eliminamos los cambios futuros a ese commit, aqui si se eliminan tanto los commits como los archivos que se crearon posterior al ID que coloquemos
 
 ```shell
@@ -184,20 +185,20 @@ En caso de restaurar los cambios podemos utilizar reflog: muestra todos los camb
 git reflog
 ```
 
-Si utilizamos el --hard por equivocacion y no tenemos el ID del commit donde estabamos, usamos el git reflog para ver todo el historial de commits que hecho. Asi podemos buscar el ID del ultimo commit que realizamos y volver ahi usando git reset --hard de igual manera, pero esta vez con este ID y restauramos todos los archivos
+Si utilizamos el --hard por equivocacion y no tenemos el ID del commit donde estabamos, usamos el git reflog para ver todo el historial de commits que hecho. Asi podemos buscar el ID del ultimo commit que realizamos y volver ahi usando `git reset --hard` de igual manera, pero esta vez con este ID y restauramos todos los archivos
 
 ### Nota: Tener cuidado con reset
 
-Ambos comandos git revert y git reset deshacen commits anteriores. Pero si ya has subido tu commit a un repositorio remoto, se recomienda que no uses git reset, ya que reescribe el historial de commits
+Ambos comandos `git revert` y `git reset` deshacen commits anteriores. Pero si ya has subido tu commit a un repositorio remoto, se recomienda que no uses git reset, ya que reescribe el historial de commits
 
-Solucion: Restaurar la ultima version remota. Con pull
+**Solucion: Restaurar la ultima version remota. Con pull**
 
 ```bash
  git pull origin YOUR_BRANCH_NAME
 ```
 
 Ejemplo.
-Subimos el repositorio a github, luego escribimos git reset --hard 346e753.
+Subimos el repositorio a github, luego escribimos `git reset --hard 346e753`.
 
 Se van los cambios que hice posterior a ese commit.
 
@@ -207,9 +208,9 @@ Y cuando lo subo al repositorio remoto con git push, dará error
 
 Hay un conflicto, ya que en github tenemos un commit con un ID que no existe, es el que elimimamos al hacer reset
 
-Cuando pase esto, escribir el git pull origin YOUR_BRANCH_NAME
+Cuando pase esto, escribir el `git pull origin YOUR_BRANCH_NAME`
 
-Si verificamos con git log, aparece que hicimos un merged y aparecen todos los commits mezclados. Esa es una alternativa
+Si verificamos con `git log`, aparece que hicimos un merged y aparecen todos los commits mezclados. Esa es una alternativa
 
 Como estamos trabajando en una sol rama, esto tambien ocaciona esos problemas
 
@@ -227,7 +228,19 @@ git revert 346e753
 ```
 El commit seguirá en el historial (al escribir git log, seguira el mismo ID), pero sacamos los cambios que estaban en ese commit e hcimos otro commt, entonces lo tenemos como respaldo
 
-Ahora no habrá problemas al subirlo a guthub
+Ahora no habrá problemas al subirlo a github
+
+
+## Ramas o branch
+
+`git branch` // Para ver las ramas que tengo y en cual estoy
+
+`git branch "nombreRama"` //Para crear una nueva rama
+
+`git checkout nombreRama` // Para movernos a la nueva rama
+
+
+
 
 
 
