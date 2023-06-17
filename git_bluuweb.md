@@ -273,6 +273,15 @@ Creo un nuevo archivo **services.html** con una estructura html y hago commit, m
 
 Al hacer `git merge` se genera un conflicto
 
+//CONFLICT (content): Merge conflict in services.html
+//Automatic merge failed; fix conflicts and then commit the result.
+
+`Accept Current Change | Accept Incoming Change | Accept Both Changes | Compare Changes`
+
+La primera opcion me da la opcion de dejar el ultimo cambio realizado en el main, la segunda opcion me permite dejar el cambio que se realizó en la otra rama y que se fusionara en la principal, la tercera opcion me permite dejar los dos codigos diferentes uno despues del otro
+
+
+
 
 
 Search
