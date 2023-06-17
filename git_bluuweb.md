@@ -244,7 +244,10 @@ Como se hace?
 
 `git checkout nombreRama` // Para movernos a la nueva rama
 
-`git log --oneline --graph` // Nos muestra visualmente las ramas
+**Atajo**
+Podemos utilizar `git checkout -b nombreRama` para crear la nueva rama y viajar a ella directamente
+
+`git log --oneline --graph` // Nos muestra visualmente las ramas. Como funciona?
 
 `git push --set-upstream origin 02-rama` // Para subir la rama a github
 
@@ -255,15 +258,24 @@ Para unir una rama con la nueva, para eso tenemos que estar en la rama que está
 
 `git merge nombreRama`
 
-`git log --oneline --graph`
+Si aparece **Fast-forward* quiere decir que no hubo ningun conflicto
 
 `git branch -d nombreRama` // Eliminar una rama
 
 
+### Conflictos
 
+Si se realizan varios cambios en el mismo lugar de un archivo en diferentes ramas, se va a sobreponer un codigo encima del otro
+
+Esto pasaria con diferentes personas en diferentes ramas
+
+Creo un nuevo archivo **services.html** con una estructura html y hago commit, me cambio a la rama `03-services` agrego un h1 con un "hola" y hago commit, cambio a la rama `main` y no tendra titulo, agrego h1 con un "lorem" y hago commit.
+
+Al hacer `git merge` se genera un conflicto
 
 
 
 Search
 github esta cambiando de master a main
-
+cambiar comentario de un commit
+`git log --oneline --graph` como funciona para ver las ramas?
