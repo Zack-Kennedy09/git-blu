@@ -281,6 +281,38 @@ Al hacer `git merge` se genera un conflicto
 La primera opcion me da la opcion de dejar el ultimo cambio realizado en el main, la segunda opcion me permite dejar el cambio que se realizó en la otra rama y que se fusionara en la principal, la tercera opcion me permite dejar los dos codigos diferentes uno despues del otro
 
 
+## Tags
+
+Con los tags podemos hacer versiones de nuestro proyecto
+
+`git tag versionAlpha -m "version alpha"` // Crear un tag
+
+Colocamos un nombre y un mensaje de esa version, en este ejemplo es versionAlpha, no colocar espacios en el nombre y el mensaje algo como 0.0.1
+
+`git tag` // Listar tags
+
+`git tag -d nombreTags` //borrar tags
+
+`git tag -a nombreTag f52f3da -m "version alpha"` // Hacer una version en un commit anterior ej: f52f3da
+
+`git show nombreTag` // Mostrar informacion del tag
+
+**Ej:**
+
+`git tag versionAlpha -m "0.0.1"`git tag versionAlpha -m "version alpha"`
+
+Se pueden hacer todas las versiones que se crean convenientes y se va a asociar a un commit
+
+Puedo realizar un `git push` pero no se va a actualizar esa opcion en github
+
+**GITHUB: Subir los tags**
+
+Por defecto si creaste un proyecto con diferentes versiones no subirá los tags, para eso tenemos el siguiente comando
+
+`git push --tags`
+
+
+
 
 
 
