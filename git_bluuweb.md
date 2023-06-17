@@ -249,11 +249,21 @@ Como se hace?
 `git push --set-upstream origin 02-rama` // Para subir la rama a github
 
 
+## Git Merge
+
+Para unir una rama con la nueva, para eso tenemos que estar en la rama que está esperando los cambios
+
+`git merge nombreRama`
+
+`git log --oneline --graph`
+
+`git branch -d nombreRama` // Eliminar una rama
+
+
 
 
 
 
 Search
 github esta cambiando de master a main
-eliminar el ultimo commit?
 
