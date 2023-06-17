@@ -226,9 +226,14 @@ Por ejemplo tenemos 5 commits, el tercero es el que tiene errores o queremos eli
 ```bash
 git revert 346e753
 ```
-El commit seguirá en el historial (al escribir git log, seguira el mismo ID), pero sacamos los cambios que estaban en ese commit e hcimos otro commt, entonces lo tenemos como respaldo
+El commit seguirá en el historial (al escribir git log, seguira el mismo ID), pero sacamos los cambios que estaban en ese commit e hicmos otro commit, entonces lo tenemos como respaldo
 
 Ahora no habrá problemas al subirlo a github
+
+**Nota**
+El git revert cuando lo aplico para eliminar un archivo creado en un commit en especifoco si lo elimina sin alterar ningun otro archivo posterior.
+Pero cuando en un mismo archivo, ej h1, h2, h3. tengo varios commits y quiero eliminar el h2, entonces elimina todos los cambios posteriores al h2 o el editor de VSCode me da la opcion de dejar todos los cambios, pero no me da la opcion de quitar unicamente los cambios de un commit sin alterar el resto del codigo, tal como lo haria con un archivo independiente,
+Como se hace?
 
 
 ## Ramas o branch
@@ -239,7 +244,9 @@ Ahora no habrá problemas al subirlo a github
 
 `git checkout nombreRama` // Para movernos a la nueva rama
 
+`git log --oneline --graph` // Nos muestra visualmente las ramas
 
+`git push --set-upstream origin 02-rama` // Para subir la rama a github
 
 
 
@@ -249,3 +256,4 @@ Ahora no habrá problemas al subirlo a github
 Search
 github esta cambiando de master a main
 eliminar el ultimo commit?
+
