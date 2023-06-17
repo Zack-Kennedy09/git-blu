@@ -311,8 +311,25 @@ Por defecto si creaste un proyecto con diferentes versiones no subirá los tags,
 
 `git push --tags`
 
+Al tener la version en github incluso se puede descargar todo lo que llevamos hasta acá, en ésta versión, poren un archivo .zip o tar.gz
 
 
+## Push
+
+Al ejecutar el comando `git push` estaremos subiendo todos los cambios locales al servidor remoto de github, hay que tener en cuenta que tienes que estar enlazado con tu repositorio. Para eso puedes usar `git remote -v`
+luego ejecuta:
+`git push`
+
+## Pull
+
+Cuando realizamos cambios directamente en github pero no de forma local, es esencial realizar un pull, donde descarguemos los cambios realizados para seguir trabajando normalmente.
+Es importante estar enlazados remotamente, verificar con `git remote -v`
+luego ejecuta:
+`git pull`
+
+Si estoy en github y hago un cambio, por ejemplo agrego un readme.md y agrego un commit, pero de forma local yo no lo tengo. Lo que tenemos que hacer es comparar lso cambios que se hicieron de forma remota y traerlos de forma local
+
+Muy rara vez va a pasar ésto, no es recomendable que hagan cambios en github y despues los traigan al repositorio local
 
 
 
